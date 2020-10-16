@@ -13,5 +13,7 @@ jobs:
           node-version: '14'
       - name: show node version
         run: node -v
+      - name: install node modules
+        run: npm install
       - name: run test
         run: npm run test
