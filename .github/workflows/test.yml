@@ -1,0 +1,17 @@
+name: test
+
+on: push
+
+jobs:
+  echo:
+    name: echo simple message
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo
+        run: echo "start"
+  test:
+    name: run test
+    runs-on: ubuntu-latest
+    steps:
+      - name: test
+        run: npm run test
