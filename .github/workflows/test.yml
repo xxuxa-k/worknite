@@ -9,9 +9,15 @@ jobs:
     steps:
       - name: echo
         run: echo "start"
+      - name: check
+        run: which npm
   test:
     name: run test
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: '14'
       - name: test
         run: npm run test
