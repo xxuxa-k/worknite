@@ -15,8 +15,9 @@ describe('AppController', () => {
   });
 
   describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+    it('should return list of endpoints', () => {
+      expect(appController.getEndpoints())
+      .toBe('{"/":"list of endpoints","/storegroups":"list of store groups","/stores":"list of stores","/users":"list of users"}');
     });
   });
 });

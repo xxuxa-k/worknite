@@ -7,6 +7,6 @@ export class AppController {
 
   @Get()
   getEndpoints(): string {
-    return this.appService.getHello();
+    return this.appService.getEndpoints();
   }
 }
