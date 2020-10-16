@@ -17,3 +17,7 @@ jobs:
         run: npm install
       - name: run test
         run: npm run test
+      - name: slack notify
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+          --data '{"text":"worknite ci finished."}' ${{ secrets.SLACK_WEBHOOK_URL }}
