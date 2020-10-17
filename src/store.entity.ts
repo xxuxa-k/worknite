@@ -4,12 +4,12 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
-  ManyToOne
+  OneToMany
 } from 'typeorm'
-import { Store } from './store.entity'
+import { User } from './user.entity'
 
 @Entity()
-export class User {
+export class Store {
   @PrimaryGeneratedColumn()
   id: number
 
@@ -17,22 +17,16 @@ export class User {
   name: string
 
   @Column()
-  castName: string
-
-  @Column()
-  email: string
+  address: string
 
   @Column({ default: false })
   deleted: boolean
 
-  @Column()
-  type: string
-
   @Column({ default: 'hourly' })
   paymentSystem: string
 
-  @ManyToOne(type => Store, store => store.users)
-  store: Store
+  @OneToMany(type => User, user => user.store)
+  users: User[]
 
   @CreateDateColumn()
   createdAt: Date
