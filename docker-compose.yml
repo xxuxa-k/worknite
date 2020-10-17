@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:latest
+    volumes:
+      - ./tmp/redis:/data
+    command: redis-server --appendonly yes
+    ports:
+      - "16379:6379"
+  db:
+    image: postgres:latest
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    ports:
+      - "15432:5432"
+    environment:
+      POSTGRES_PASSWORD: dbpass
+    restart: always
+
+
